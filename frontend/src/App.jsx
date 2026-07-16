@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { Loader } from "lucide-react";
+import { useAuthStore } from "./store/useAuthStore";
 
-//Importing Pages
+import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
@@ -9,6 +11,20 @@ import SettingsPage from "./pages/SettingsPage";
 import ProfilePage from "./pages/ProfilePage";
 
 const App = () => {
+  const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
+  console.log({ authUser });
+
+  if (true) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <loader className="size-10 animate-spin" />
+      </div>
+    );
+  }
+
   return (
     <div>
       <Navbar />
