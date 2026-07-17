@@ -17,17 +17,16 @@ const App = () => {
   }, [checkAuth]);
   console.log({ authUser });
 
-  if (true) {
+  if (isCheckingAuth) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <loader className="size-10 animate-spin" />
+        <Loader className="size-10 animate-spin" />
       </div>
     );
   }
 
   return (
     <div>
-      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignUpPage />} />
