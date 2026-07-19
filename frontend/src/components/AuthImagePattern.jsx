@@ -1,17 +1,19 @@
-import React from "react";
-import { MessageSquare } from "lucide-react";
-
 const AuthImagePattern = ({ title, subtitle }) => {
   return (
-    <div className="hidden lg:flex flex-col justify-center items-center p-12 bg-gradient-to-br from-primary/5 to-primary/10">
-      <div className="max-w-md text-center space-y-6">
-        <div className="flex justify-center">
-          <div className="size-24 rounded-2xl bg-primary flex items-center justify-center">
-            <MessageSquare className="size-12 text-white" />
-          </div>
+    <div className="hidden lg:flex items-center justify-center bg-base-200 p-12">
+      <div className="max-w-md text-center">
+        <div className="grid grid-cols-3 gap-3 mb-8">
+          {[...Array(9)].map((_, i) => (
+            <div
+              key={i}
+              className={`aspect-square rounded-2xl bg-primary/10 ${
+                i % 2 === 0 ? "animate-pulse" : ""
+              }`}
+            />
+          ))}
         </div>
-        <h2 className="text-3xl font-bold">{title}</h2>
-        <p className="text-base-content/70 text-lg">{subtitle}</p>
+        <h2 className="text-2xl font-bold mb-4">{title}</h2>
+        <p className="text-base-content/60">{subtitle}</p>
       </div>
     </div>
   );
