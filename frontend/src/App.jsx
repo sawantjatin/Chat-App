@@ -27,7 +27,6 @@ const App = () => {
 
   return (
     <div>
-      <Navbar />
       <Routes>
         <Route
           path="/"
